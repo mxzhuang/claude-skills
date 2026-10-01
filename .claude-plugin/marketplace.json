@@ -1,0 +1,14 @@
+{
+  "name": "research-workflow",
+  "description": "Research workflow plugin for Claude Code.",
+  "owner": {
+    "name": "research-workflow contributors"
+  },
+  "plugins": [
+    {
+      "name": "research-workflow",
+      "source": "./",
+      "description": "Claude Code workflow for academic research: literature search and reading, experiment design review, statistics, adversarial review, session handoff, and project templates."
+    }
+  ]
+}

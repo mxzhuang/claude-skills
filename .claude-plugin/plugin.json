@@ -1,0 +1,16 @@
+{
+  "name": "research-workflow",
+  "description": "Claude Code workflow for academic research: literature search and reading, experiment design review, statistics, adversarial review, session handoff, and project templates.",
+  "version": "1.0.0",
+  "author": {
+    "name": "research-workflow contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "papers",
+    "experiment-design",
+    "statistics",
+    "handoff"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start-context.sh\"",
+            "timeout": 15,
+            "description": "注入 .context/current-focus.md 的常駐區。分段時間預算，選配段逾時就略過，必要段一定送出。"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/pycheck.py\"",
+            "description": "Python 語法檢查。從 stdin JSON 讀 tool_input.file_path。成功靜默，語法錯誤 exit 2。"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/stop-humanizer.sh\"",
+            "timeout": 15,
+            "description": "繁中用詞檢查，只看這一輪動過的 .md。只報告不改寫，沒問題就不輸出。"
+          }
+        ]
+      }
+    ]
+  }
+}
